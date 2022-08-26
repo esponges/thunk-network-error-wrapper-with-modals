@@ -1,27 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './pokemon-go-logo-hd-image-png-vector-clipart-179087.png';
 import './App.css';
-import { useSelector } from 'react-redux';
-import type { RootState } from './store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from './store';
+import {
+  getPokemonApiFailedRequest,
+  getPokemonApiOkReq,
+} from './store/actions/pokemon';
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
   const { modals } = useSelector((state: RootState) => state);
+  console.log(modals);
+
+  const handleGetSuccessPokemonPayload = () => {
+    dispatch(getPokemonApiOkReq(1));
+  };
+
+  const handleGetErrorPokemonPayload = () => {
+    dispatch(getPokemonApiFailedRequest(null));
+  };
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          <button onClick={handleGetSuccessPokemonPayload}>
+            Fetch Pokemon Success
+          </button>
         </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
+        <p>
+          <button onClick={handleGetErrorPokemonPayload}>
+            Fetch Pokemon Error
+          </button>
+        </p>
       </header>
     </div>
   );
