@@ -5,12 +5,9 @@ interface ModalsInitialState {
   [key: number]: ModalProps;
 }
 
-const initialState: ModalsInitialState = {
-  1: {
-    title: 'Foo',
-    children: 'Foo',
-  },
-};
+// we want this to be an object with keys
+// so we can select the modal by the key id
+const initialState: ModalsInitialState = {};
 
 const modalsSlice = createSlice({
   name: 'modals',
