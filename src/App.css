@@ -28,11 +28,45 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  border-radius: 15px;
+  border: 1px solid black;
+  margin: 15px auto;
+  display: block;
+  padding: 15px;
+  background-color: white;
+  color: black;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.btn-red:hover {
+  background-color: red;
+  color: white;
+}
+
+.btn-green:hover {
+  background-color: green;
+  color: white;
+}
+
+.modal-container {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.modal-container .modal-content {
+  border-radius: 15px;
+  padding: 15px;
+  position: relative;
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: white;
+  top: 40%;
 }
