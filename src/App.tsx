@@ -7,6 +7,8 @@ import {
   getPokemonApiFailedRequest,
   getPokemonApiOkReq,
 } from './store/actions/pokemon';
+import { Modal } from './Modal';
+import { closeModal } from './store/actions/modals';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,8 +23,21 @@ function App() {
     dispatch(getPokemonApiFailedRequest(null));
   };
 
+  const handleModalClose = (id: number) => {
+    dispatch(closeModal(id));
+  }
+
   return (
     <div className='App'>
+      {Object.values(modals).map((modal) => (
+        <Modal
+          key={modal.id}
+          id={modal.id}
+          title={modal.title}
+          children={modal.children}
+          onClose={() => handleModalClose(modal.id)}
+        />
+      ))}
       <header className='App-header'>
         <p>
           <button onClick={handleGetSuccessPokemonPayload}>
