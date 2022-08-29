@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './pokemon-go-logo-hd-image-png-vector-clipart-179087.png';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from './store';

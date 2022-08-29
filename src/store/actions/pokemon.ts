@@ -12,6 +12,7 @@ export const getPokemonApiOkReq = asyncThunkHandleError<Response, number>(
 export const getPokemonApiFailedRequest = asyncThunkHandleError<Response, any>(
   'pokemon/api-failed',
   async (arg, thunkAPI) => {
+    // just make the url to 404 fail
     const badResponse = await fetch(`https://pokeapi.co/api/v2/pokemonFooError/${arg}`);
     return badResponse.json();
   },
